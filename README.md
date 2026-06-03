@@ -3,9 +3,13 @@
 Com o intuito de estudo e possível escalabilidade, propomos um estudo de sentimentos do Canal Você Sábia?
 Pois é notável o tamanho do canal e seu crescimento ao longo dos anos.
 
-Utilizamos a bibliotaca pysentimiento, pois a mesma é projetada em cima dos cometários do X/Twiter
+Avaliamos uma das ferramentas de análise de sentimentos, a pysentimiento, sendo essa uma ferramenta treinada em posts do antigo Twitter, onde essa ferramenta é capaz de avaliar se um comentário é positivo, negativo ou neutro, com base na distribuição das palavras e emoji, atribuindo pesos em cada.
 
-## Sumário dos Resultados da Análise de Sentimento Calibrada
+## Resultados da Análise de Sentimento Calibrada
+
+Na situação em questão, precisei realizar um ajuste de pesos, pois, como a ferramenta é versada em comentários do antigo Twitter, poderia não ser capaz de avaliar o sarcasmo ou repetição de caracteres, mas, trouxe resultados bastante interessantes, porém ao deparar com a taxa de acerto, vi que não era o que esperava, entretanto, era de se esperar que o resultado fosse baixo, devido ao Dataset ser pequeno.
+
+Mas nessa situação, foi optado interferir um pouco na métrica e reavaliar, informando para a ferramenta que ela avaliasse como neutro somente se tivesse ou 70% ou 80% ou 90% de certeza, forçando a mesma a optar por positivo ou negativo, onde tivemos resultados ainda melhores, e uma taxa de acerto mais promissora mesmo que baixa.
 
 Após aplicar a função de calibragem de confiança, os resultados do modelo de análise de sentimento `pysentimiento` são os seguintes:
 
@@ -69,3 +73,5 @@ Utilizando uma penalização de 80%
 #Real_POS:    162     | 12      | 33
 #Real_NEG:    35      | 57      | 77
 #Real_NEU:    73      | 46      | 140
+
+Pretendo ainda realizar uma nova avaliação com um Dataset consideravelmente maior, para ter resultados melhores.
